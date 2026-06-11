@@ -17,5 +17,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Application tested successfully'
+            }
+        }
     }
 }
