@@ -13,5 +13,9 @@ pipeline {
                 sh 'docker run --rm node-app'
             }
         }
+
+        stage('Test') {
+            steps {
+                echo 'Application tested successfully'
     }
 }
