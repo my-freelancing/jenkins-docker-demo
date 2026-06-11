@@ -1,3 +1,3 @@
 FROM node:16-alpine
-COOPY app.js .
+COPY app.js .
 CMD ["node", "app.js"]
