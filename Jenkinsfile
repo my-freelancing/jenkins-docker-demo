@@ -1,14 +1,15 @@
 pipeline
-    agent any  {
+    agent any  
+
         stages {
             stage('Build') {
-                steps{
+                steps {
                     sh 'docker build -t node-app .'
                 }
             }
 
             stage('Run') {
-                stepd{
+                steps {
                     sh 'docker run --rm my-node-app'
                 }
             }
