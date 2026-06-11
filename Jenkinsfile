@@ -1,28 +1,21 @@
 pipeline {
     agent any
 
+    parameters {
+        string(name: 'USERNAME', defaultValue: 'Dhanush')
+        choice(name: 'ENV', choices: ['DEV', 'QA', 'PROD'])
+    }
+
+    environment {
+        APP_NAME = "Hello-App"
+    }
+
     stages {
-        stage('Build') {
+        stage('Print') {
             steps {
-                sh 'docker build -t node-app .'
-            }
-        }
-
-        stage('Run') {
-            steps {
-                sh 'docker run --rm node-app'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'Application tested successfully'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying application'
+                echo "User: ${params.USERNAME}"
+                echo "Environment: ${params.ENV}"
+                echo "Application: ${APP_NAME}"
             }
         }
     }
